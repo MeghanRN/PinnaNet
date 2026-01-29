@@ -1,2 +1,10 @@
 # PinnaNet
-A bio-inspired neural network for 3D sound localization using a single microphone and learned spectral representations induced by an artificial pinna.
+##Project Description
+
+This project investigates whether 3D sound direction can be inferred from a single audio channel by learning direction-dependent spectral cues induced by passive acoustic geometry. Traditional sound localization systems rely on microphone arrays to estimate time- or level-based differences between sensors. In contrast, this work explores an array-free, monaural approach inspired by human hearing, where the outer ear (pinna) encodes spatial information into the frequency structure of incoming sound.
+
+The pipeline synthesizes a large, direction-labeled dataset by convolving random broadband audio sources with direction-dependent transfer functions derived from a SOFA file. Each resulting monaural signal is transformed into a time–frequency representation using the short-time Fourier transform, followed by a mel-band projection. The feature representation includes log-mel magnitude, temporal deltas, and mel-band phase encoded as cosine and sine components, allowing the model to exploit both amplitude- and phase-related spectral structure.
+
+A convolutional neural network is trained to regress directly to a 3D unit direction vector rather than angular coordinates, enabling smooth predictions over the sphere and avoiding discontinuities at azimuth wrap-around. Training uses a cosine-distance loss on unit vectors, and evaluation is performed using circular mean absolute error for azimuth and elevation as well as great-circle angular error, which measures geodesic distance between predicted and true directions.
+
+The notebook includes end-to-end dataset construction, feature extraction, model training, checkpointing, quantitative evaluation, and multiple visualizations, including true-versus-predicted direction plots, error histograms, and 3D sphere visualizations colored by angular error. Results demonstrate that a neural network can learn stable, direction-dependent spectral representations from monaural signals and recover meaningful spatial information without relying on multi-sensor hardware.

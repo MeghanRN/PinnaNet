@@ -1,5 +1,4 @@
-# PinnaNet
-##Project Description
+#Project Description
 
 This project investigates whether 3D sound direction can be inferred from a single audio channel by learning direction-dependent spectral cues induced by passive acoustic geometry. Traditional sound localization systems rely on microphone arrays to estimate time- or level-based differences between sensors. In contrast, this work explores an array-free, monaural approach inspired by human hearing, where the outer ear (pinna) encodes spatial information into the frequency structure of incoming sound.
 

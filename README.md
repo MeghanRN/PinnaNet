@@ -1,5 +1,5 @@
-#Project Description
-
+# Pinna Net
+## Project Description
 This project investigates whether 3D sound direction can be inferred from a single audio channel by learning direction-dependent spectral cues induced by passive acoustic geometry. Traditional sound localization systems rely on microphone arrays to estimate time- or level-based differences between sensors. In contrast, this work explores an array-free, monaural approach inspired by human hearing, where the outer ear (pinna) encodes spatial information into the frequency structure of incoming sound.
 
 The pipeline synthesizes a large, direction-labeled dataset by convolving random broadband audio sources with direction-dependent transfer functions derived from a SOFA file. Each resulting monaural signal is transformed into a time–frequency representation using the short-time Fourier transform, followed by a mel-band projection. The feature representation includes log-mel magnitude, temporal deltas, and mel-band phase encoded as cosine and sine components, allowing the model to exploit both amplitude- and phase-related spectral structure.
